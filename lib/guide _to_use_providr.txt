@@ -1,0 +1,51 @@
+Steps to use provider as state management
+
+1) add provider package to pubsec.yaml
+
+
+2) create filname.dart and inside this create class extends Change Notifier
+ex: 
+    class CountProvider extends ChangeNotifier{
+   
+   int _count = 0;
+
+   int get count => _count;
+
+   void setCount(){
+     _count++;
+     notifyListeners();
+   }
+}
+
+
+3) above material app return ChangeNotifier inside this use material app
+ex:
+    return ChangeNotifierProvider(
+      create: (context) => 
+        CountProvider(),
+      child: MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const CountExample(),
+    ),
+   );
+
+
+4) Now use this line
+                   final countProvider = Provider.of<CountProvider>(context, listen: false);
+
+
+5) Then we have to use Conusmer(), where we want rebuild widget
+ex:
+
+     child: Consumer<CountProvider>(builder: (context, value, child) {
+          print('Only this field rebuilds');
+          return Text(value.count.toString(),
+        style: TextStyle(
+          fontSize: 50,
+          ),
+         );
+        },
+       ),
