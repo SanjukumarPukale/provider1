@@ -9,6 +9,7 @@ import 'package:provider1/screen/count_example.dart';
 import 'package:provider1/screen/examle_one.dart';
 import 'package:provider1/screen/favourite/dark_theme.dart';
 import 'package:provider1/screen/favourite/favourite_screen.dart';
+import 'package:provider1/screen/favourite/value_notify_listener.dart';
 import 'package:provider1/why_provider.dart';
 
 void main() {
@@ -54,7 +55,7 @@ class MyApp extends StatelessWidget {
                 )
 
               ),
-              home: const DarkThemeScreen(),
+              home: NotifyListenerScreen(),
             );
           },
         ));
